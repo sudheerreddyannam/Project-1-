@@ -1,1 +1,19 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myjavaapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myjavaapp
+  template:
+    metadata:
+      labels:
+        app: myjavaapp
+    spec:
+      containers:
+      - name: myjavaapp
+        image: 600735812827.dkr.ecr.us-west-1.amazonaws.com/javasession2:latest
+        ports:
+        - containerPort: 8080
